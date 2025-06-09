@@ -1,0 +1,81 @@
+/* Reset básico e configurações do corpo da página */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Container principal que agrupa tudo */
+.container {
+    text-align: center;
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+/* Estilo do relógio (data e hora) */
+.relogio {
+    margin-bottom: 30px;
+}
+
+.relogio p {
+    margin: 5px 0;
+    font-size: 1.8em;
+    font-weight: 300;
+}
+
+/* Estilo dos botões */
+.botoes button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 5px;
+    background-color: #e9e9ed; /* Cinza claro como na imagem */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botoes button:hover {
+    background-color: #dcdce1;
+}
+
+/* Container e estilo da tabela de registros */
+.registros-container {
+    margin-top: 40px;
+    width: 100%;
+    max-width: 500px; /* Largura máxima para a tabela */
+}
+
+.tabela-registros {
+    width: 100%;
+    border-collapse: collapse; /* Remove o espaço entre as bordas */
+}
+
+.tabela-registros th, .tabela-registros td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+.tabela-registros thead {
+    background-color: #f2f2f2;
+}
+
+/* Linhas pares da tabela com cor de fundo diferente para melhor leitura */
+.tabela-registros tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}

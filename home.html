@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Ponto</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+
+    <main class="container">
+        <h1>Meu_Ponto</h1>
+
+        <div class="relogio">
+            <p id="data-atual"></p>
+            <p id="hora-atual"></p>
+        </div>
+
+        <div class="botoes">
+            <button id="btn-registrar-entrada">Registrar Entrada</button>
+            <button id="btn-registrar-saida">Registrar Saída</button>
+        </div>
+
+        <div class="registros-container">
+            <table class="tabela-registros">
+                <thead>
+                    <tr>
+                        <th>Usuário</th>
+                        <th>Data</th>
+                        <th>Hora</th>
+                        <th>Tipo</th>
+                    </tr>
+                </thead>
+                <tbody id="corpo-tabela">
+                    <!-- Registros serão inseridos aqui -->
+                </tbody>
+            </table>
+            <button id="btn-exportar-pdf">Exportar para PDF</button>
+        </div>
+    </main>
+
+    <script src="home.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</body>
+</html>

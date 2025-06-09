@@ -1,0 +1,76 @@
+/* Define o estilo base para a página inteira */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: sans-serif; /* Use uma fonte de sua preferência */
+}
+
+/* O container que vai segurar o formulário */
+.login-container {
+    /* Define a altura mínima como 100% da altura da tela */
+    min-height: 100vh;
+    
+    /* A MÁGICA ACONTECE AQUI */
+    display: flex;           /* Ativa o Flexbox */
+    justify-content: center; /* Centraliza na horizontal */
+    align-items: center;     /* Centraliza na vertical */
+
+    /* Coloque aqui o estilo do seu fundo (cor, gradiente ou imagem) */
+    background: linear-gradient(to bottom, #e0f7fa, #ffffff); /* Exemplo de gradiente suave */
+    /* Se for uma imagem: */
+    /* background-image: url('caminho/para/sua/imagem.jpg'); */
+    /* background-size: cover; */
+    /* background-position: center; */
+}
+
+/* Estilos para o formulário (para ele ficar bonito) */
+.login-form {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px; /* Define uma largura máxima para o form */
+    text-align: center;
+}
+
+.login-form h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Garante que o padding não aumente a largura total */
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF; /* Azul, similar ao da sua imagem */
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
