@@ -72,23 +72,34 @@ document.addEventListener('DOMContentLoaded', () => {
         adicionarLinhaNaTabela(novoRegistro);
         verificarBotaoDoDia();
     }
+function exportarParaPDF() {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({
+    orientation: 'portrait',
+    unit: 'mm',
+    format: 'a4',
+  });
 
-    function exportarParaPDF() {
-        const { jsPDF } = window.jspdf;
-        const doc = new jsPDF();
+  doc.text("Relatório de Ponto", 10, 10);
 
-        doc.text("Relatório de Ponto", 10, 10);
+  const registros = JSON.parse(localStorage.getItem('registrosPonto')) || [];
 
-        const registros = JSON.parse(localStorage.getItem('registrosPonto')) || [];
-
-        let y = 20;
-        registros.forEach(reg => {
-            doc.text(`Usuário: ${reg.usuario} | Data: ${reg.data} | Hora: ${reg.hora} | Tipo: ${reg.tipo}`, 10, y);
-            y += 10;
-        });
-
-        doc.save("registro-ponto.pdf");
+  let y = 20;
+  registros.forEach(reg => {
+    if (y > 280) {
+      doc.addPage();
+      y = 20;
     }
+
+    const texto = `Usuário: ${reg.usuario} | Data: ${reg.data} | Hora: ${reg.hora} | Tipo: ${reg.tipo}`;
+    const linhas = doc.splitTextToSize(texto, 180);
+    doc.text(linhas, 10, y);
+    y += linhas.length * 10;
+  });
+
+  doc.save("registro-ponto.pdf");
+}
+
 
     // Inicializa ao carregar
     const registros = JSON.parse(localStorage.getItem('registrosPonto')) || [];
