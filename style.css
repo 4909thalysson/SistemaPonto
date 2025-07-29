@@ -1,9 +1,9 @@
-/* Define o estilo base para a página inteira */
+
 body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: sans-serif; /* Use uma fonte de sua preferência */
+    font-family: sans-serif; 
 }
 
 /* O container que vai segurar o formulário */
@@ -11,20 +11,20 @@ body, html {
     /* Define a altura mínima como 100% da altura da tela */
     min-height: 100vh;
     
-    /* A MÁGICA ACONTECE AQUI */
+  
     display: flex;           /* Ativa o Flexbox */
     justify-content: center; /* Centraliza na horizontal */
     align-items: center;     /* Centraliza na vertical */
 
-    /* Coloque aqui o estilo do seu fundo (cor, gradiente ou imagem) */
-    background: linear-gradient(to bottom, #e0f7fa, #ffffff); /* Exemplo de gradiente suave */
+  
+    background: linear-gradient(to bottom, #e0f7fa, #ffffff); 
     /* Se for uma imagem: */
     /* background-image: url('caminho/para/sua/imagem.jpg'); */
     /* background-size: cover; */
     /* background-position: center; */
 }
 
-/* Estilos para o formulário (para ele ficar bonito) */
+
 .login-form {
     background-color: white;
     padding: 40px;
@@ -64,7 +64,7 @@ button {
     padding: 12px;
     border: none;
     border-radius: 5px;
-    background-color: #007BFF; /* Azul, similar ao da sua imagem */
+    background-color: #007BFF; 
     color: white;
     font-size: 16px;
     cursor: pointer;
