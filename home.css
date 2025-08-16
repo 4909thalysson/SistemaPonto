@@ -50,7 +50,7 @@ h1 {
 }
 
 .botoes button:hover {
-    background-color: #dcdce1;
+    background-color: #efeff0;
 }
 
 /* Container e estilo da tabela de registros */
@@ -78,4 +78,22 @@ h1 {
 /* Linhas pares da tabela com cor de fundo diferente para melhor leitura */
 .tabela-registros tbody tr:nth-child(even) {
     background-color: #f9f9f9;
+}
+
+.btn-exportar {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-top: 15px; 
+    font-size: 1.1em;
+    border: none;
+    border-radius: 5px;
+    background-color: #001f3f; 
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-exportar:hover {
+    background-color: #003366; 
 }
