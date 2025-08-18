@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnRegistrarEntrada = document.getElementById('btn-registrar-entrada');
     const btnRegistrarSaida = document.getElementById('btn-registrar-saida');
     const corpoTabela = document.getElementById('corpo-tabela');
-    const btnExportarPdf = document.getElementById('btn-exportar-pdf');
+    const btnExportarPdf = document.getElementById('btnExportarPdf');
 
     const usuario = usuarioLogado; // Define o usuário com base no login
 

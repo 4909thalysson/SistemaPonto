@@ -50,7 +50,7 @@ h1 {
 }
 
 .botoes button:hover {
-    background-color: #efeff0;
+    background-color: #dcdce1;
 }
 
 /* Container e estilo da tabela de registros */
@@ -80,7 +80,7 @@ h1 {
     background-color: #f9f9f9;
 }
 
-.btn-exportar {
+.btnExportarPdf {
     display: block;
     width: 100%;
     padding: 15px;
@@ -94,6 +94,6 @@ h1 {
     transition: background-color 0.3s ease;
 }
 
-.btn-exportar:hover {
+.btnExportarPdf:hover {
     background-color: #003366; 
 }
