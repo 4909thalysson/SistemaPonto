@@ -3,20 +3,67 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background-color: #f4f4f9;
     color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
     margin: 0;
+    padding-top: 70px; /* Espaço para o cabeçalho */
+}
+
+/* Cabeçalho fixo no topo com cor #003366 */
+.cabecalho__home {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #003366;
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0;
+    z-index: 1000;
+}
+
+/* Centraliza os links no cabeçalho */
+.cabecalho__home ul {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    padding: 0;
+    margin: 0;
+}
+
+.cabecalho__home ul li {
+    margin: 0 15px;
+    list-style: none;
+}
+
+/* Links brancos, sem fundo, com hover azul claro */
+.cabecalho__home ul li a {
+    color: #fff;
+    background: none;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.cabecalho__home ul li a:hover {
+    background-color: #66aaff;
+    color: #003366;
 }
 
 /* Container principal que agrupa tudo */
 .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     text-align: center;
     background-color: white;
-    padding: 40px;
+    padding: 50px;
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 0 auto;
 }
 
 h1 {
@@ -34,66 +81,47 @@ h1 {
     font-size: 1.8em;
     font-weight: 300;
 }
+.botoesPonto{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+    margin-top: 10px;
+
+}
 
 /* Estilo dos botões */
-.botoes button {
-    display: block;
-    width: 100%;
+.btnRegistrarEntrada,
+.btnRegistrarSaida {
+    width: 40%;
     padding: 15px;
     margin-bottom: 10px;
     font-size: 1.1em;
     border: none;
     border-radius: 5px;
-    background-color: #e9e9ed; /* Cinza claro como na imagem */
+    background-color: #e9e9ed;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-.botoes button:hover {
-    background-color: #dcdce1;
-}
+/* Cores diferentes para identificar cada ação */
 
-/* Container e estilo da tabela de registros */
-.registros-container {
-    margin-top: 40px;
-    width: 100%;
-    max-width: 500px; /* Largura máxima para a tabela */
-}
-
-.tabela-registros {
-    width: 100%;
-    border-collapse: collapse; /* Remove o espaço entre as bordas */
-}
-
-.tabela-registros th, .tabela-registros td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: center;
-}
-
-.tabela-registros thead {
-    background-color: #f2f2f2;
-}
-
-/* Linhas pares da tabela com cor de fundo diferente para melhor leitura */
-.tabela-registros tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-.btnExportarPdf {
-    display: block;
-    width: 100%;
-    padding: 15px;
-    margin-top: 15px; 
-    font-size: 1.1em;
-    border: none;
-    border-radius: 5px;
-    background-color: #001f3f; 
+.btnRegistrarEntrada{
+    background-color: #003366;
     color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
-.btnExportarPdf:hover {
-    background-color: #003366; 
+.btnRegistrarEntrada:hover {
+  background-color: #66aaff;
+}
+
+.btnRegistrarSaida {
+  background-color: #003366;
+  color: white;
+}
+
+.btnRegistrarSaida:hover {
+  background-color: #66aaff;
 }

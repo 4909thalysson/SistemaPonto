@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const emailInput = document.getElementById('usuario').value.trim();
     const senhaInput = document.getElementById('senha').value.trim();
 
-    const emailAutorizado = "thalysson.oliveira@cambai.com.br";
+    const emailAutorizado = "thalysson.oliveira";
     const senhaAutorizada = "r4N5h#9B";
 
     if (emailInput === emailAutorizado && senhaInput === senhaAutorizada) {

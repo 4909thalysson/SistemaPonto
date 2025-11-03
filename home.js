@@ -1,54 +1,41 @@
-// Verificação de acesso antes de tudo
 document.addEventListener('DOMContentLoaded', () => {
-    const usuarioLogado = localStorage.getItem('usuarioLogado');
+    const usuario = localStorage.getItem('usuarioLogado');
 
-    if (usuarioLogado !== 'thalysson.oliveira@cambai.com.br') {
+    if (usuario !== 'thalysson.oliveira') {
         alert('Acesso não autorizado. Redirecionando para o login...');
         window.location.href = 'login.html';
         return;
     }
 
-    // Segue execução normal do sistema após verificação
+    // Elementos da página
     const dataAtualEl = document.getElementById('data-atual');
     const horaAtualEl = document.getElementById('hora-atual');
     const btnRegistrarEntrada = document.getElementById('btn-registrar-entrada');
     const btnRegistrarSaida = document.getElementById('btn-registrar-saida');
-    const corpoTabela = document.getElementById('corpo-tabela');
-    const btnExportarPdf = document.getElementById('btnExportarPdf');
+    const horaEntradaEl = document.getElementById('hora-entrada');
+    const horaSaidaEl = document.getElementById('hora-saida');
 
-    const usuario = usuarioLogado; // Define o usuário com base no login
-
+    // Atualiza relógio em tempo real
     function atualizarRelogio() {
         const agora = new Date();
         dataAtualEl.textContent = agora.toLocaleDateString('pt-BR');
         horaAtualEl.textContent = agora.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
     }
-
     setInterval(atualizarRelogio, 1000);
     atualizarRelogio();
 
-    function adicionarLinhaNaTabela({ usuario, data, hora, tipo }) {
-        const novaLinha = document.createElement('tr');
-        novaLinha.innerHTML = `
-            <td>${usuario}</td>
-            <td>${data}</td>
-            <td>${hora}</td>
-            <td>${tipo}</td>
-        `;
-        corpoTabela.appendChild(novaLinha);
-    }
-
-    function verificarBotaoDoDia() {
-        const hoje = new Date().toLocaleDateString('pt-BR');
+    // Atualiza painel do dia
+    function atualizarRegistrosDoDia() {
         const registros = JSON.parse(localStorage.getItem('registrosPonto')) || [];
+        const hoje = new Date().toLocaleDateString('pt-BR');
 
-        const temEntrada = registros.some(r => r.usuario === usuario && r.data === hoje && r.tipo === 'Entrada');
-        const temSaida = registros.some(r => r.usuario === usuario && r.data === hoje && r.tipo === 'Saída');
+        const registroDoDia = registros.find(r => r.usuario === usuario && r.data === hoje);
 
-        btnRegistrarEntrada.disabled = temEntrada;
-        btnRegistrarSaida.disabled = temSaida;
+        horaEntradaEl.textContent = registroDoDia?.horaEntrada || '--:--';
+        horaSaidaEl.textContent = registroDoDia?.horaSaida || '--:--';
     }
 
+    // Função para registrar ponto (entrada ou saída)
     function registrarPonto(tipo) {
         const agora = new Date();
         const data = agora.toLocaleDateString('pt-BR');
@@ -56,57 +43,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const registros = JSON.parse(localStorage.getItem('registrosPonto')) || [];
 
-        const jaRegistrado = registros.some(reg =>
-            reg.usuario === usuario && reg.data === data && reg.tipo === tipo
-        );
+        // Busca registro do dia
+        let registroDoDia = registros.find(r => r.usuario === usuario && r.data === data);
 
-        if (jaRegistrado) {
-            alert(`Você já registrou ${tipo.toLowerCase()} hoje.`);
-            return;
+        if (!registroDoDia) {
+            registroDoDia = { usuario, data, horaEntrada: '', horaSaida: '' };
+            registros.push(registroDoDia);
         }
 
-        const novoRegistro = { usuario, data, hora, tipo };
-        registros.push(novoRegistro);
+        // Verifica se já registrou
+        if (tipo === 'Entrada') {
+            if (registroDoDia.horaEntrada) {
+                alert('Você já registrou a entrada hoje.');
+                return;
+            }
+            registroDoDia.horaEntrada = hora;
+        } else if (tipo === 'Saída') {
+            if (registroDoDia.horaSaida) {
+                alert('Você já registrou a saída hoje.');
+                return;
+            }
+            registroDoDia.horaSaida = hora;
+        }
+
         localStorage.setItem('registrosPonto', JSON.stringify(registros));
 
-        adicionarLinhaNaTabela(novoRegistro);
+        atualizarRegistrosDoDia();
         verificarBotaoDoDia();
     }
-function exportarParaPDF() {
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF({
-    orientation: 'portrait',
-    unit: 'mm',
-    format: 'a4',
-  });
 
-  doc.text("Relatório de Ponto", 10, 10);
+    // Desabilita botões se já registrou
+    function verificarBotaoDoDia() {
+        const registros = JSON.parse(localStorage.getItem('registrosPonto')) || [];
+        const hoje = new Date().toLocaleDateString('pt-BR');
+        const registroDoDia = registros.find(r => r.usuario === usuario && r.data === hoje);
 
-  const registros = JSON.parse(localStorage.getItem('registrosPonto')) || [];
-
-  let y = 20;
-  registros.forEach(reg => {
-    if (y > 280) {
-      doc.addPage();
-      y = 20;
+        btnRegistrarEntrada.disabled = !!registroDoDia?.horaEntrada;
+        btnRegistrarSaida.disabled = !!registroDoDia?.horaSaida;
     }
 
-    const texto = `Usuário: ${reg.usuario} | Data: ${reg.data} | Hora: ${reg.hora} | Tipo: ${reg.tipo}`;
-    const linhas = doc.splitTextToSize(texto, 180);
-    doc.text(linhas, 10, y);
-    y += linhas.length * 10;
-  });
-
-  doc.save("registro-ponto.pdf");
-}
-
-
-    // Inicializa ao carregar
-    const registros = JSON.parse(localStorage.getItem('registrosPonto')) || [];
-    registros.forEach(adicionarLinhaNaTabela);
-    verificarBotaoDoDia();
-
+    // Liga eventos
     btnRegistrarEntrada.addEventListener('click', () => registrarPonto('Entrada'));
     btnRegistrarSaida.addEventListener('click', () => registrarPonto('Saída'));
-    btnExportarPdf.addEventListener('click', exportarParaPDF);
+
+    // Inicializa tela
+    atualizarRegistrosDoDia();
+    verificarBotaoDoDia();
 });

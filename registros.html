@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela de Registros</title>
+    <link rel="stylesheet" href="registros.css">
+</head>
+<header class="cabecalho__registros">
+    <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="login.html">Sair</a></li>
+    </ul>
+</header>
+<body>
+    <h1>Tabela de Registros</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Usuário</th>
+                <th>Data</th>
+                <th>Hora de entrada</th>
+                <th>Hora de saída</th>
+                <th>Tipo</th>
+            </tr>
+        </thead>
+        <tbody id="tabelaRegistros"></tbody>
+    </table>
+
+    <div class="btnExportarExcelContainer">
+        <button id="btnExportarExcel" class="btnExportarExcel">Exportar Excel</button>
+    </div>
+    <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+    <script src="registros.js"></script>
+</body>
+</html>

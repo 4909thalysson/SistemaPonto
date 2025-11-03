@@ -6,8 +6,13 @@
     <title>Meu Ponto</title>
     <link rel="stylesheet" href="home.css">
 </head>
+<header class="cabecalho__home">
+    <ul>
+        <li><a href="registros.html">Tabela de Registros</a></li>
+        <li><a href="login.html">Sair</a></li>
+    </ul>
+</header>
 <body>
-
     <main class="container">
         <h1>Meu_Ponto</h1>
 
@@ -16,29 +21,19 @@
             <p id="hora-atual"></p>
         </div>
 
-        <div class="botoes">
-            <button id="btn-registrar-entrada">Registrar Entrada</button>
-            <button id="btn-registrar-saida">Registrar Saída</button>
+        <div class="botoesPonto">
+            <button id="btn-registrar-entrada" class="btnRegistrarEntrada">Registrar Entrada</button>
+            <button id="btn-registrar-saida" class="btnRegistrarSaida">Registrar Saída</button>
         </div>
 
-        <div class="registros-container">
-            <table class="tabela-registros">
-                <thead>
-                    <tr>
-                        <th>Usuário</th>
-                        <th>Data</th>
-                        <th>Hora</th>
-                        <th>Tipo</th>
-                    </tr>
-                </thead>
-                <tbody id="corpo-tabela">
-                    <!-- Registros serão inseridos aqui -->
-                </tbody>
-            </table>
-            <button id="btnExportarPdf" class="btnExportarPdf">Exportar para PDF</button>
+        </div>
+
+        <div class="container__dia">
+            <h2>Registro do dia</h2>
+            <p><strong>Entrada:</strong> <span id="hora-entrada">--:--</span></p>
+            <p><strong>Saída:</strong> <span id="hora-saida">--:--</span></p>
         </div>
     </main>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="home.js"></script>
 </body>
 </html>

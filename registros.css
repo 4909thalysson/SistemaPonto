@@ -1,0 +1,143 @@
+/* Reset básico e configurações do corpo da página */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    min-height: 100vh;
+    margin: 0;
+    padding-top: 70px; /* Espaço para o cabeçalho fixo */
+}
+
+/* Cabeçalho fixo no topo com cor #003366 */
+.cabecalho__registros {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #003366;
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0;
+    z-index: 1000;
+}
+
+/* Centraliza os links no cabeçalho */
+.cabecalho__registros ul {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    padding: 0;
+    margin: 0;
+}
+
+.cabecalho__registros ul li {
+    margin: 0 15px;
+    list-style: none;
+}
+
+/* Links brancos, sem fundo, com hover azul claro */
+.cabecalho__registros ul li a {
+    color: #fff;
+    background: none;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.cabecalho__registros ul li a:hover {
+    background-color: #66aaff;
+    color: #003366;
+}
+
+/* Centraliza o conteúdo principal */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 70px);
+}
+
+/* Título centralizado */
+h1 {
+    font-size: 2.2em;
+    margin: 40px 0 20px 0;
+    text-align: center;
+}
+
+/* Estilo da tabela de registros */
+table {
+    margin: 0 auto 30px auto; /* Centraliza horizontalmente e mantém espaçamento inferior */
+    width: 100%;
+    max-width: 700px;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 14px;
+    text-align: center;
+}
+
+thead {
+    background-color: #f2f2f2;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+
+/* Botão de exportar Excel */
+
+.btnExportarExcelContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btnExportarExcel{
+    width: 15%;
+    padding: 15px;
+    margin-top: 10px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 5px;
+    background-color: #001f3f;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btnExportarExcel:hover{
+    background-color: #66aaff
+}
+
+/* Estilo responsivo para telas menores */
+@media (max-width: 768px) {
+    table {
+        width: 95%;
+    }
+
+    .btnExportarExcel{
+        width: 50%;
+    }
+}
+/* Reset básico e configurações do corpo da página */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    min-height: 100vh;
+    margin: 0;
+    padding-top: 70px; /* Espaço para o cabeçalho fixo */
+}
