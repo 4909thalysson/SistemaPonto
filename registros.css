@@ -52,6 +52,13 @@ body {
     color: #003366;
 }
 
+.cabecalho__registros img {
+    width: 50px;      /* ajusta aqui se quiser menor/maior */
+    height: 50px;
+    padding-left: 35px;
+    cursor: pointer;
+}
+
 /* Centraliza o conteúdo principal */
 main {
     display: flex;

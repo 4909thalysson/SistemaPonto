@@ -1,43 +1,52 @@
-body, html {
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+
+html, body {
     height: 100%;
-    font-family: sans-serif; 
+    font-family: sans-serif;
 }
 
-/* O container que vai segurar o formulário */
 .login-container {
-    min-height: 100vh;
-    display: flex;          
-    justify-content: center; 
-    align-items: center;      
+    display: flex;
+    height: 100vh;
 }
 
-.imagemFundo{
-    position: fixed;
-    top: 0;
-    left: 0;
+.imagem-area {
+    width: 50%;
+}
+
+.imagem-area img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -1;
-    opacity: 0.8;
 }
 
-/* Estilos para o formulário (para ele ficar bonito) */
-.login-form {
+
+.login-area {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: white;
+}
+
+.login-form {
+    background-color: #002244;
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 450px; 
+    max-width: 450px;
     text-align: center;
 }
 
 .login-form h2 {
-    margin-bottom: 20px;
-    color: #333;
+    margin-bottom: 25px;
+    color: white;
 }
 
 .input-group {
@@ -48,7 +57,7 @@ body, html {
 .input-group label {
     display: block;
     margin-bottom: 5px;
-    color: #555;
+    color: white;
 }
 
 .input-group input {
@@ -56,21 +65,42 @@ body, html {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-sizing: border-box; 
 }
 
+/* Botão */
 button {
-    width: 100%;
+    margin-top: 10px;
+    width: 100px;
     padding: 12px;
     border: none;
     border-radius: 5px;
-    background-color: #003366; 
-    color: white;
+    background-color: white;
+    color: #002244;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #003366;
+    background-color: #263747;
+    color: white;
+}
+
+/* =========================
+   RESPONSIVO (CELULAR)
+   ========================= */
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: column;
+    }
+
+    .imagem-area,
+    .login-area {
+        width: 100%;
+        height: 50vh;
+    }
+
+    .login-form {
+        padding: 30px;
+    }
 }
